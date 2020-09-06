@@ -16,7 +16,7 @@ async function connectionState(endpoint) {
          }
        }
      });
-     await sleep(5000);
+     await sleep(2000);
   }
 }
 
@@ -64,6 +64,8 @@ async function inviteRelative() {
       await connectionState("relative")
 
       // Call Step 3
+      document.getElementById("donate-2").classList.add("disabled");
+      document.getElementById("donate-3").classList.remove("disabled");
       document.getElementById("donate-3").scrollIntoView();
     }
   });

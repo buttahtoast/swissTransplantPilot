@@ -10,7 +10,8 @@ var client,
   session = {
     donator: {
       connection: {},
-      credential: {}
+      credential: {},
+      data: {}
     },
     relative: {
       connection: {},

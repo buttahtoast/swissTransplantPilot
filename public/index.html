@@ -49,7 +49,7 @@
             </div>
         </div>
     </section>
-    <section id="donate-3" class="donate" style="background: #08437a;color: #08437a;">
+    <section id="donate-3" class="donate disabled" style="background: #08437a;color: #08437a;">
         <h2 class="text-uppercase text-center text-white">Step 3</h2>
         <h2 class="font-weight-light mb-0" style="text-align: center;font-size: 28px;margin: 3px;margin-bottom: 3px;padding: 0px;padding-top: 10px;padding-bottom: 20px;color: rgb(255,255,255);">Provide information about you</h2>
         <div class="container">
@@ -57,47 +57,59 @@
                 <div class="col-lg-8 mx-auto">
                     <form id="contactForm" name="sentMessage" novalidate="novalidate">
                         <div class="control-group">
-                            <div class="form-group floating-label-form-group controls mb-0 pb-2"><label>Name</label><input class="form-control" type="text" id="name" required="" placeholder="Name"><small class="form-text text-danger help-block"></small></div>
+                            <div class="form-group floating-label-form-group controls mb-0 pb-2"><label>First Name</label><input class="form-control" type="text" id="donator-first-name" required="" placeholder="First Name"><small class="form-text text-danger help-block"></small></div>
                         </div>
                         <div class="control-group">
-                            <div class="form-group floating-label-form-group controls mb-0 pb-2"><label>Email Address</label><input class="form-control" type="email" id="email" required="" placeholder="Email Address"><small class="form-text text-danger help-block"></small></div>
+                            <div class="form-group floating-label-form-group controls mb-0 pb-2"><label>First Name</label><input class="form-control" type="text" id="donator-sur-name" required="" placeholder="Surname"><small class="form-text text-danger help-block"></small></div>
                         </div>
-                        <div class="control-group"></div>
                         <div class="control-group">
-                            <div class="form-group floating-label-form-group controls mb-5 pb-2"><small class="form-text text-danger help-block"></small></div>
+                            <div class="form-group floating-label-form-group controls mb-0 pb-2"><label>First Name</label><input class="form-control" type="email" id="donator-email" required="" placeholder="E-Mail"><small class="form-text text-danger help-block"></small></div>
+                        </div>
+                        <div class="control-group">
+                            <div class="form-group floating-label-form-group controls mb-0 pb-2"><label>First Name</label><input class="form-control" type="text" id="donator-birth-place" required="" placeholder="Place of birth"><small class="form-text text-danger help-block"></small></div>
+                        </div>
+                          <h3 class="font-weight-light mb-0" style="text-align: left;font-size: 24px;margin: 3px;margin-bottom: 5px;padding: 0px;padding-top: 10px;color: #ffffff;">Birthdate</h3>
+                            <div class="form-group floating-label-form-group controls mb-0 pb-2"><label>First Name</label><input class="form-control" type="date" id="donator-birth-date" required="" ><small class="form-text text-danger help-block"></small></div>
+                        <div class="control-group">
+                          <h3 class="font-weight-light mb-0" style="text-align: left;font-size: 24px;margin: 3px;margin-bottom: 5px;padding: 0px;padding-top: 10px;color: #ffffff;">Donation</h3>
+                          <div class="form-group floating-label-form-group controls mb-0 pb-2">
+                          <fieldset>
+                            <input type="radio" id="donator-all" name="Zahlmethode" value="all">
+                            <label for="donator-all">All</label>
+                            <input type="radio" id="donator-selected" name="Zahlmethode" value="selected">
+                            <label for="donator-selected"> Selected</label>
+                            <input type="radio" id="donator-none" name="Zahlmethode" value="none">
+                            <label for="donator-none">None</label>
+                          </fieldset>
+                        </div>
+                      </div>
+                        <div class="control-group">
+                            <div class="form-group controls mb-0 pb-2"><label>Forschungszwecke</label><input class="form-control" type="email" id="email" required="" placeholder="Email Address"><small class="form-text text-danger help-block"></small></div>
                         </div>
                         <div id="success"></div>
-                        <div class="form-group"><button class="btn btn-primary btn-xl" id="sendMessageButton" type="submit" style="background: rgb(255,255,255);color: #0b65a6;border-color: #08437a;">Send</button></div>
+                        <button class="btn btn-primary btn-xl" id="sendMessageButton" type="submit" style="background: rgb(255,255,255);color: #0b65a6;border-color: #08437a;">Issue</button>
                     </form>
                 </div>
             </div>
         </div>
     </section>
-    <section id="donate-4" class="donate" style="background: #ffffff;color: #08437a;">
+    <section id="donate-4" class="donate disabled" style="background: #ffffff;color: #08437a;">
         <h2 class="text-uppercase text-center text-secondary" style="color: rgb(255,255,255);">Step 4</h2>
-        <h2 class="font-weight-light mb-0" style="text-align: center;font-size: 28px;margin: 3px;margin-bottom: 3px;padding: 0px;padding-top: 10px;padding-bottom: 20px;color: #0b65a6;">Relative information</h2>
-        <h2 class="font-weight-light mb-0" style="text-align: center;font-size: 28px;margin: 3px;margin-bottom: 3px;padding: 0px;padding-top: 10px;padding-bottom: 20px;color: rgb(255,255,255);">Provide information about you</h2>
+        <h2 class="font-weight-light mb-0" style="text-align: center;font-size: 28px;margin: 3px;margin-bottom: 3px;padding: 0px;padding-top: 10px;padding-bottom: 20px;color: #0b65a6;">Accept Issued Credentials</h2>
         <div class="container">
             <div class="row">
-                <div class="col-lg-8 mx-auto">
-                    <form id="contactForm-1" name="sentMessage" novalidate="novalidate">
-                        <div class="control-group">
-                            <div class="form-group floating-label-form-group controls mb-0 pb-2"><small class="form-text text-danger help-block"></small></div>
-                        </div>
-                        <div class="control-group">
-                            <div class="form-group floating-label-form-group controls mb-0 pb-2"><label>Email Address</label><input class="form-control" type="text" id="name-1" required="" placeholder="Name"><input class="form-control" type="email" id="email-2" required="" placeholder="Email Address"><input class="form-control"
-                                    type="email" id="email-1" required="" placeholder="Email Address"><small class="form-text text-danger help-block"></small></div>
-                        </div>
-                        <div class="control-group"></div>
-                        <div class="control-group"></div>
-                        <div id="success-1"></div>
-                        <div class="form-group"><button class="btn btn-primary btn-xl" id="sendMessageButton-1" type="submit" style="background: rgb(255,255,255);color: #0b65a6;border-color: #08437a;">Send</button></div>
-                    </form>
+                <div class="col-md-6 col-lg-6">
+                    <h3 class="font-weight-light mb-0" style="text-align: center;font-size: 24px;margin: 3px;margin-bottom: 0px;padding: 0px;padding-top: 10px;color: #0b65a6;">Donator Status</h3>
+                    <img class="img-fluid" src="assets/img/loader-2.gif"></a>
+                </div>
+                <div class="col-md-6 col-lg-6">
+                    <h3 class="font-weight-light mb-0" style="text-align: center;font-size: 24px;margin: 3px;margin-bottom: 0px;padding: 0px;padding-top: 10px;color: #0b65a6;">Relative Status</h3>
+                    <img class="img-fluid" style="width:auto;height:auto;"src="assets/img/loader-2.gif"></a>
                 </div>
             </div>
         </div>
     </section>
-    <section id="donate-4" class="donate" style="color: rgb(255,255,255);background: #ffffff;">
+    <section id="donate-4" class="donate disabled" style="color: rgb(255,255,255);background: #ffffff;">
         <div class="container">
             <h2 class="text-uppercase text-center text-secondary" style="color: rgb(255,255,255);">Step 5</h2>
             <h2 class="font-weight-light mb-0" style="text-align: center;font-size: 28px;margin: 3px;margin-bottom: 3px;padding: 0px;padding-top: 10px;padding-bottom: 20px;color: #0b65a6;">Accept Issued credentials</h2>
