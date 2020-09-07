@@ -6,7 +6,21 @@ Kubernetli Project  Template
 
 
 
+## Wiki
 
+
+
+
+
+### Session Import/Export
+
+Export current Session:
+
+<pre><code>curl http://localhost:8080/api/dev/session > session.bak</code></pre>
+
+Import exported Session:
+
+<pre><code>curl -X POST http://localhost:8080/api/dev/session --data @session.bak -H "Content-Type: application/json"</code></pre>
 
 
 

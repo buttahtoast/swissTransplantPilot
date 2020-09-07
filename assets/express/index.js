@@ -5,7 +5,7 @@ const api = require('./api.js'),
   http = require('http');
 
 // Initalize Function (Loader)
-function loader(config) {
+function loader(config, db) {
   return new Promise(function(resolve, reject) {
     try {
       // App Constant
@@ -20,7 +20,7 @@ function loader(config) {
       console.log("Startup: Attempt to load API Manifest");
 
       // Load Api Manifest
-      api.definition(config, localapp).then((apiManifest) => {
+      api.definition(config, localapp, db).then((apiManifest) => {
 
         // Debug Output
         console.log("Startup: Received API Manifest");

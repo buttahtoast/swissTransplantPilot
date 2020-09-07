@@ -12,7 +12,8 @@ if(!process.env.ACCESS_TOKEN) {
 const config = {
   accessToken: process.env.ACCESS_TOKEN,
   schema: {
-    donator: "2wy7WKyfYL6z3HMZC7YxbM:3:CL:140557:default"
+    donator: "2wy7WKyfYL6z3HMZC7YxbM:3:CL:140610:default",
+    relative: "2wy7WKyfYL6z3HMZC7YxbM:3:CL:140606:default"
   },
   web: {
     port: 8080,
@@ -21,26 +22,23 @@ const config = {
   db: 'relation.db'
 }
 
-
+// Database
+const db = new sqlite3.Database(config.db);
 
 // Load Webserver
 async function initialize() {
   try {
 
     // Initialize Database
-
-    //sqlite3.run(`CREATE TABLE IF NOT EXISTS credential_connection(
-    //  id INTEGER PRIMARY KEY,
-    //  name VARCHAR(25) NOT NULL)`
-    //);
-
-
-
-
+    db.run(`CREATE TABLE IF NOT EXISTS credential_connection(
+      donator_credential VARCHAR(250),
+      relative_credential VARCHAR(250),
+      session VARCHAR(250))`
+    );
 
     // Load Webserver
     console.log("Startup: Attempt to load Express App")
-    const expressApp = await expressInit.initialize(config); // Initialize Express
+    const expressApp = await expressInit.initialize(config, db); // Initialize Express
     console.log("Startup: Loaded Express App")
 
     // Express Error Handler

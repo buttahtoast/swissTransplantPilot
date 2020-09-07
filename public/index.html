@@ -12,15 +12,15 @@
     <link rel="stylesheet" href="assets/fonts/font-awesome.min.css">
 </head>
 
-<body id="page-top" onload="initializeWorkflow()">
+<body id="page-top" onload="initialize()">
     <nav class="navbar navbar-light navbar-expand-lg fixed-top bg-secondary text-uppercase" id="mainNav" style="background-color: #08437a;">
         <div class="container"><a class="navbar-brand js-scroll-trigger" href="#page-top">Pilot</a><button data-toggle="collapse" data-target="#navbarResponsive" class="navbar-toggler navbar-toggler-right text-uppercase bg-primary text-white rounded" aria-controls="navbarResponsive"
                 aria-expanded="false" aria-label="Toggle navigation"><i class="fa fa-bars"></i></button>
             <div class="collapse navbar-collapse" id="navbarResponsive">
                 <ul class="nav navbar-nav ml-auto">
-                    <li class="nav-item mx-0 mx-lg-1" role="presentation"><a class="nav-link py-3 px-0 px-lg-3 rounded js-scroll-trigger" href="#portfolio">Portfolio</a></li>
-                    <li class="nav-item mx-0 mx-lg-1" role="presentation"><a class="nav-link py-3 px-0 px-lg-3 rounded js-scroll-trigger" href="#about">About</a></li>
-                    <li class="nav-item mx-0 mx-lg-1" role="presentation"><a class="nav-link py-3 px-0 px-lg-3 rounded js-scroll-trigger" href="#contact">Contact</a></li>
+                    <li class="nav-item mx-0 mx-lg-1" role="presentation"><a class="nav-link py-3 px-0 px-lg-3 rounded js-scroll-trigger" href="#donate">Donator</a></li>
+                    <li class="nav-item mx-0 mx-lg-1" role="presentation"><a class="nav-link py-3 px-0 px-lg-3 rounded js-scroll-trigger" href="#about">Receiver</a></li>
+                    <li class="nav-item mx-0 mx-lg-1" role="presentation"><a class="nav-link py-3 px-0 px-lg-3 rounded js-scroll-trigger" href="#contact">Verification</a></li>
                 </ul>
             </div>
         </div>
@@ -31,6 +31,7 @@
             <h2 class="font-weight-light mb-0" style="color: #0b65a6;">DLT Implementation Demo System</h2>
         </div>
     </header>
+  <div id="register">
     <section id="donate-1" class="donate" style="background-color: #08437a;color: rgb(255,255,255);">
         <div class="container">
             <h2 class="text-uppercase text-center text-white">Step 1</h2>
@@ -43,7 +44,7 @@
     <section id="donate-2" class="donate disabled" style="color: rgb(255,255,255);background: #ffffff;">
         <div class="container">
             <h2 class="text-uppercase text-center text-secondary" style="color: rgb(255,255,255);">Step 2</h2>
-            <h2 class="font-weight-light mb-0" style="text-align: center;font-size: 28px;margin: 3px;margin-bottom: 3px;padding: 0px;padding-top: 10px;padding-bottom: 20px;color: #0b65a6;">Invate a relative to join the SwissTransplant organisation</h2>
+            <h2 class="font-weight-light mb-0" style="text-align: center;font-size: 28px;margin: 3px;margin-bottom: 3px;padding: 0px;padding-top: 10px;padding-bottom: 20px;color: #0b65a6;">Invite a relative to join the SwissTransplant organisation</h2>
             <div class="row">
                 <div id="donate-2-response" class="col"></div>
             </div>
@@ -55,39 +56,53 @@
         <div class="container">
             <div class="row">
                 <div class="col-lg-8 mx-auto">
-                    <form id="contactForm" name="sentMessage" novalidate="novalidate">
+                    <form id="contactForm" name="sentMessage" >
                         <div class="control-group">
-                            <div class="form-group floating-label-form-group controls mb-0 pb-2"><label>First Name</label><input class="form-control" type="text" id="donator-first-name" required="" placeholder="First Name"><small class="form-text text-danger help-block"></small></div>
+                          <h3 class="font-weight-light mb-0" style="text-align: left;font-size: 24px;margin: 3px;margin-bottom: 5px;padding: 0px;padding-top: 10px;color: #ffffff;">Firstname</h3>
+                            <div class="form-group mb-0 pb-2">
+                              <input class="form-control" type="text" id="donator-first-name" required="" placeholder="Firstname">
+                            </div>
                         </div>
                         <div class="control-group">
-                            <div class="form-group floating-label-form-group controls mb-0 pb-2"><label>First Name</label><input class="form-control" type="text" id="donator-sur-name" required="" placeholder="Surname"><small class="form-text text-danger help-block"></small></div>
+                          <h3 class="font-weight-light mb-0" style="text-align: left;font-size: 24px;margin: 3px;margin-bottom: 5px;padding: 0px;padding-top: 10px;color: #ffffff;">Surname</h3>
+                            <div class="form-group mb-0 pb-2">
+                              <input class="form-control" type="text" id="donator-sur-name" required="" placeholder="Surname">
+                            </div>
                         </div>
                         <div class="control-group">
-                            <div class="form-group floating-label-form-group controls mb-0 pb-2"><label>First Name</label><input class="form-control" type="email" id="donator-email" required="" placeholder="E-Mail"><small class="form-text text-danger help-block"></small></div>
+                          <h3 class="font-weight-light mb-0" style="text-align: left;font-size: 24px;margin: 3px;margin-bottom: 5px;padding: 0px;padding-top: 10px;color: #ffffff;">Place of birth</h3>
+                            <div class="form-group mb-0 pb-2">
+                              <input class="form-control" type="text" id="donator-birth-place" required="" placeholder="Place of birth">
+                            </div>
                         </div>
                         <div class="control-group">
-                            <div class="form-group floating-label-form-group controls mb-0 pb-2"><label>First Name</label><input class="form-control" type="text" id="donator-birth-place" required="" placeholder="Place of birth"><small class="form-text text-danger help-block"></small></div>
-                        </div>
                           <h3 class="font-weight-light mb-0" style="text-align: left;font-size: 24px;margin: 3px;margin-bottom: 5px;padding: 0px;padding-top: 10px;color: #ffffff;">Birthdate</h3>
-                            <div class="form-group floating-label-form-group controls mb-0 pb-2"><label>First Name</label><input class="form-control" type="date" id="donator-birth-date" required="" ><small class="form-text text-danger help-block"></small></div>
+                            <div class="form-group mb-0 pb-2">
+                              <input class="form-control" type="date" id="donator-birth-date" required="" >
+                            </div>
+                        </div>
                         <div class="control-group">
                           <h3 class="font-weight-light mb-0" style="text-align: left;font-size: 24px;margin: 3px;margin-bottom: 5px;padding: 0px;padding-top: 10px;color: #ffffff;">Donation</h3>
-                          <div class="form-group floating-label-form-group controls mb-0 pb-2">
+                          <div style="padding-left:14px; padding-top:20px;"class="form-group mb-0 pb-2">
                           <fieldset>
-                            <input type="radio" id="donator-all" name="Zahlmethode" value="all">
-                            <label for="donator-all">All</label>
-                            <input type="radio" id="donator-selected" name="Zahlmethode" value="selected">
-                            <label for="donator-selected"> Selected</label>
-                            <input type="radio" id="donator-none" name="Zahlmethode" value="none">
-                            <label for="donator-none">None</label>
+                            <input type="radio" id="donator-all" name="donation" checked="true" value="all">
+                            <label for="donator-all" style="color:#ffffff;">All</label>
+                            <input type="radio" id="donator-selected" name="donation" value="selected">
+                            <label for="donator-selected" style="color:#ffffff;"> Selected</label>
+                            <input type="radio" id="donator-none" name="donation" value="none">
+                            <label for="donator-none" style="color:#ffffff;">None</label>
                           </fieldset>
                         </div>
-                      </div>
+                        </div>
                         <div class="control-group">
-                            <div class="form-group controls mb-0 pb-2"><label>Forschungszwecke</label><input class="form-control" type="email" id="email" required="" placeholder="Email Address"><small class="form-text text-danger help-block"></small></div>
+                          <h3 class="font-weight-light mb-0" style="text-align: left;font-size: 24px;margin: 3px;margin-bottom: 5px;padding: 0px;padding-top: 10px;color: #ffffff;">Research Purposes</h3>
+                            <div style="padding-left:14px; padding-top:20px;"class="form-group mb-0 pb-2">
+                            <input type="checkbox" id="donator-research" name="donator-research" value="true">
+                            <label for="donator-research" style="color:#ffffff;">Yes</label><br>
+                          </div>
                         </div>
                         <div id="success"></div>
-                        <button class="btn btn-primary btn-xl" id="sendMessageButton" type="submit" style="background: rgb(255,255,255);color: #0b65a6;border-color: #08437a;">Issue</button>
+                        <button class="btn btn-primary btn-xl" id="issueCredentials" type="button" onclick="genVerifiableCredentials()" style="background: rgb(255,255,255);color: #0b65a6;border-color: #08437a;">Issue</button>
                     </form>
                 </div>
             </div>
@@ -100,56 +115,27 @@
             <div class="row">
                 <div class="col-md-6 col-lg-6">
                     <h3 class="font-weight-light mb-0" style="text-align: center;font-size: 24px;margin: 3px;margin-bottom: 0px;padding: 0px;padding-top: 10px;color: #0b65a6;">Donator Status</h3>
-                    <img class="img-fluid" src="assets/img/loader-2.gif"></a>
+                    <img id="donator-status" class="img-fluid" src="assets/img/loader.gif"></a>
                 </div>
                 <div class="col-md-6 col-lg-6">
                     <h3 class="font-weight-light mb-0" style="text-align: center;font-size: 24px;margin: 3px;margin-bottom: 0px;padding: 0px;padding-top: 10px;color: #0b65a6;">Relative Status</h3>
-                    <img class="img-fluid" style="width:auto;height:auto;"src="assets/img/loader-2.gif"></a>
+                    <img id="relative-status" class="img-fluid" style="width:auto;height:auto;"src="assets/img/loader.gif"></a>
                 </div>
             </div>
         </div>
     </section>
-    <section id="donate-4" class="donate disabled" style="color: rgb(255,255,255);background: #ffffff;">
+  </div>
+    <section id="donate-5" class="donate disabled" style="background: #08437a;color: #08437a;">
         <div class="container">
-            <h2 class="text-uppercase text-center text-secondary" style="color: rgb(255,255,255);">Step 5</h2>
-            <h2 class="font-weight-light mb-0" style="text-align: center;font-size: 28px;margin: 3px;margin-bottom: 3px;padding: 0px;padding-top: 10px;padding-bottom: 20px;color: #0b65a6;">Accept Issued credentials</h2>
-            <h2 class="font-weight-light mb-0" style="text-align: center;font-size: 28px;margin: 3px;margin-bottom: 3px;padding: 0px;padding-top: 10px;padding-bottom: 20px;">Join the SwissTransplant Organisation</h2>
+          <h2 class="text-uppercase text-center text-white">Step 5</h2>
+          <h2 class="font-weight-light mb-0" style="text-align: center;font-size: 28px;margin: 3px;margin-bottom: 3px;padding: 0px;padding-top: 10px;padding-bottom: 20px;color: rgb(255,255,255);">Download/Review physical link</h2>
             <div class="row">
-                <div class="col-md-6 col-lg-4">
-                    <a class="d-block mx-auto portfolio-item" data-toggle="modal" href="#portfolio-modal-1">
-                        <div class="d-flex portfolio-item-caption position-absolute h-100 w-100">
-                            <div class="my-auto portfolio-item-caption-content w-100 text-center text-white"><i class="fa fa-search-plus fa-3x"></i></div>
-                        </div><img class="img-fluid" src="assets/img/portfolio/cabin.png"></a>
-                </div>
-                <div class="col-md-6 col-lg-4">
-                    <a class="d-block mx-auto portfolio-item" data-toggle="modal" href="#portfolio-modal-2">
-                        <div class="d-flex portfolio-item-caption position-absolute h-100 w-100">
-                            <div class="my-auto portfolio-item-caption-content w-100 text-center text-white"><i class="fa fa-search-plus fa-3x"></i></div>
-                        </div><img class="img-fluid" src="assets/img/portfolio/cake.png"></a>
-                </div>
-                <div class="col-md-6 col-lg-4">
-                    <a class="d-block mx-auto portfolio-item" data-toggle="modal" href="#portfolio-modal-3">
-                        <div class="d-flex portfolio-item-caption position-absolute h-100 w-100">
-                            <div class="my-auto portfolio-item-caption-content w-100 text-center text-white"><i class="fa fa-search-plus fa-3x"></i></div>
-                        </div><img class="img-fluid" src="assets/img/portfolio/circus.png"></a>
-                </div>
-                <div class="col-md-6 col-lg-4">
-                    <a class="d-block mx-auto portfolio-item" data-toggle="modal" href="#portfolio-modal-4">
-                        <div class="d-flex portfolio-item-caption position-absolute h-100 w-100">
-                            <div class="my-auto portfolio-item-caption-content w-100 text-center text-white"><i class="fa fa-search-plus fa-3x"></i></div>
-                        </div><img class="img-fluid" src="assets/img/portfolio/game.png"></a>
-                </div>
-                <div class="col-md-6 col-lg-4">
-                    <a class="d-block mx-auto portfolio-item" data-toggle="modal" href="#portfolio-modal-5">
-                        <div class="d-flex portfolio-item-caption position-absolute h-100 w-100">
-                            <div class="my-auto portfolio-item-caption-content w-100 text-center text-white"><i class="fa fa-search-plus fa-3x"></i></div>
-                        </div><img class="img-fluid" src="assets/img/portfolio/safe.png"></a>
-                </div>
-                <div class="col-md-6 col-lg-4">
-                    <a class="d-block mx-auto portfolio-item" data-toggle="modal" href="#portfolio-modal-6">
-                        <div class="d-flex portfolio-item-caption position-absolute h-100 w-100">
-                            <div class="my-auto portfolio-item-caption-content w-100 text-center text-white"><i class="fa fa-search-plus fa-3x"></i></div>
-                        </div><img class="img-fluid" src="assets/img/portfolio/submarine.png"></a>
+                <div class="col-md-6 col-lg-6">
+                  <div class="panel" style="width:425px;height: 270px;">
+    sdfasdf
+  </div>
+
+
                 </div>
             </div>
         </div>
@@ -296,7 +282,7 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-easing/1.4.1/jquery.easing.min.js"></script>
     <script src="assets/js/freelancer.js"></script>
     <script src="assets/js/config.js"></script>
-    <script src="assets/js/backend.js"></script>
+    <script src="assets/js/donator.js"></script>
     <script src="assets/js/helpers.js"></script>
 </body>
 

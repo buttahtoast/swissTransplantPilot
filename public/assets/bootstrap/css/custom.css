@@ -13,3 +13,7 @@ html {
   opacity: .5;
   pointer-events: none;
 }
+
+.hide {
+  display: none;
+}
