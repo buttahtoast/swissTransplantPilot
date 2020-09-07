@@ -10,6 +10,7 @@ function initialize() {
       if (data["ready"] == true) {
         document.getElementById("register").style.display = "none";
         document.getElementById("donate-5").classList.remove("disabled");
+        loadCard();
       } else {
         workflow();
       }
@@ -105,10 +106,26 @@ function genVerifiableCredentials() {
       await sleep(3000)
 
       // Focus Step 5
+      loadCard();
       document.getElementById("donate-4").classList.add("disabled");
       document.getElementById("donate-5").classList.remove("disabled");
       document.getElementById("donate-5").scrollIntoView();
-
     }
   });
+}
+
+
+function loadCard() {
+
+  // Call the function in the backend
+  $.ajax({
+    url:  config.backend + '/api/connection/qr/relative',
+    type: 'GET',
+    contentType: 'application/json',
+    success: async function(data) {
+      var responseElements = '<img class="center" style="height: 150px; width: 150px;" src="' + data['url'] + '" alt="QR Code"></img>'
+      $('#donate-5-response').append(responseElements); // Add Elements to do
+    }
+  });
+
 }
