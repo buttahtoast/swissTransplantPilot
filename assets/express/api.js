@@ -20,7 +20,12 @@ var client,
       },
       registered: false
     },
-    receiver: {},
+    receiver: {
+      connection: {},
+      credential: {},
+      data: {},
+      registered: false
+    },
     transaction: {}
   };
 
