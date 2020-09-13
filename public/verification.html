@@ -1,0 +1,279 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
+  <title>Pilot</title>
+  <link rel="stylesheet" href="assets/bootstrap/css/bootstrap.min.css">
+  <link rel="stylesheet" href="assets/bootstrap/css/custom.css">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Montserrat:400,700">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato:400,700,400italic,700italic">
+  <link rel="stylesheet" href="assets/fonts/font-awesome.min.css">
+</head>
+
+<body id="page-top" onload="initializeVerfication()">
+  <nav class="navbar navbar-light navbar-expand-lg fixed-top bg-secondary text-uppercase" id="mainNav" style="background-color: #08437a;">
+    <div class="container"><a class="navbar-brand js-scroll-trigger" href="#page-top">Pilot</a><button data-toggle="collapse" data-target="#navbarResponsive" class="navbar-toggler navbar-toggler-right text-uppercase bg-primary text-white rounded"
+        aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation"><i class="fa fa-bars"></i></button>
+      <div class="collapse navbar-collapse" id="navbarResponsive">
+        <ul class="nav navbar-nav ml-auto">
+          <li class="nav-item mx-0 mx-lg-1" role="presentation"><a class="nav-link py-3 px-0 px-lg-3 rounded js-scroll-trigger" href="./index.html">Donator</a></li>
+          <li class="nav-item mx-0 mx-lg-1" role="presentation"><a class="nav-link py-3 px-0 px-lg-3 rounded js-scroll-trigger" href="./receiver.html">Receiver</a></li>
+          <li class="nav-item mx-0 mx-lg-1" role="presentation"><a class="nav-link py-3 px-0 px-lg-3 rounded js-scroll-trigger" href="./verification.html">Verification</a></li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+  <header class="masthead text-white text-center" style="background-color: #FFFFFF;">
+    <div class="container"><img class="img-fluid d-block mx-auto mb-5" src="assets/img/swiss-transplant.png" style="height: 250px;">
+      <h1 style="color: #08437a;">SwissTransplant</h1>
+      <h2 class="font-weight-light mb-0" style="color: #0b65a6;">DLT Implementation Demo System</h2>
+    </div>
+  </header>
+  <div id="verification">
+    <section id="verification-1" class="donate disabled" style="background-color: #08437a;color: rgb(255,255,255);">
+      <div class="container">
+        <h2 class="text-uppercase text-center text-white">Step 1</h2>
+        <h2 class="font-weight-light mb-0" style="text-align: center;font-size: 28px;margin: 3px;margin-bottom: 3px;padding: 0px;padding-top: 10px;padding-bottom: 20px;">Verify a donator</h2>
+        <div class="row">
+          <div class="col-lg-8 mx-auto">
+            <form id="contactForm" name="sentMessage">
+              <div class="control-group">
+                <h3 class="font-weight-light mb-0" style="text-align: left;font-size: 24px;margin: 3px;margin-bottom: 5px;padding: 0px;padding-top: 10px;color: #ffffff;">ConnectionID</h3>
+                <div class="form-group mb-0 pb-2">
+                  <input class="form-control" type="text" id="verification-connectionID" required="" placeholder="ConnectionID">
+                </div>
+              </div>
+              <div id="success"></div>
+              <button class="btn btn-primary btn-xl" id="btn-verify" type="button" style="background: rgb(255,255,255);color: #0b65a6;border-color: #08437a;">Check</button>
+            </form>
+          </div>
+        </div>
+        <div id="verification-1-response" class="col"></div>
+      </div>
+  </div>
+  </section>
+  <section id="verification-2" class="donate disabled" style="background: #ffffff;color: #08437a;">
+    <div class=control-group>
+      <h2 class="text-uppercase text-center text-secondary" style="color: rgb(255,255,255);">Step 2</h2>
+      <h2 class="font-weight-light mb-0" style="text-align: center;font-size: 28px;margin: 3px;margin-bottom: 3px;padding: 0px;padding-top: 10px;padding-bottom: 20px;color: #0b65a6;">Checking Databses for relative</h2>
+      <div class="form-group mb-0 pb-2">
+        <img id="verification-status" class="rounded mx-auto d-block" src="assets/img/loader.gif"></a>
+      </div>
+    </div>
+  </section>
+  <section id="verification-3" class="donate disabled" style="background: #ffffff;color: #08437a;">
+    <div class=control-group>
+      <h2 class="text-uppercase text-center text-secondary" style="color: rgb(255,255,255);">Step 4</h2>
+      <h2 class="font-weight-light mb-0" style="text-align: center;font-size: 28px;margin: 3px;margin-bottom: 3px;padding: 0px;padding-top: 10px;padding-bottom: 20px;color: #0b65a6;">Asking relative for permission</h2>
+      <div class="form-group mb-0 pb-2">
+        <img id="verification-status2" class="rounded mx-auto d-block" src="assets/img/loader.gif"></a>
+      </div>
+    </div>
+  </section>
+  <section id="verification-4" class="donate disabled" style="background: #08437a;color: #08437a;">
+    <h2 class="text-uppercase text-center text-white">Step 3</h2>
+    <h2 class="font-weight-light mb-0" style="text-align: center;font-size: 28px;margin: 3px;margin-bottom: 3px;padding: 0px;padding-top: 10px;padding-bottom: 20px;color: rgb(255,255,255);">Donator Data</h2>
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-8 mx-auto">
+          <form id="contactForm" name="sentMessage">
+            <div class="control-group">
+              <h3 class="font-weight-light mb-0" style="text-align: left;font-size: 24px;margin: 3px;margin-bottom: 5px;padding: 0px;padding-top: 10px;color: #ffffff;">Firstname</h3>
+              <div class="form-group mb-0 pb-2">
+                <input class="form-control" type="text" id="donator-first-name" required="" placeholder="Firstname">
+              </div>
+            </div>
+            <div class="control-group">
+              <h3 class="font-weight-light mb-0" style="text-align: left;font-size: 24px;margin: 3px;margin-bottom: 5px;padding: 0px;padding-top: 10px;color: #ffffff;">Surname</h3>
+              <div class="form-group mb-0 pb-2">
+                <input class="form-control" type="text" id="donator-sur-name" required="" placeholder="Surname">
+              </div>
+            </div>
+            <div class="control-group">
+              <h3 class="font-weight-light mb-0" style="text-align: left;font-size: 24px;margin: 3px;margin-bottom: 5px;padding: 0px;padding-top: 10px;color: #ffffff;">Place of birth</h3>
+              <div class="form-group mb-0 pb-2">
+                <input class="form-control" type="text" id="donator-birth-place" required="" placeholder="Place of birth">
+              </div>
+            </div>
+            <div class="control-group">
+              <h3 class="font-weight-light mb-0" style="text-align: left;font-size: 24px;margin: 3px;margin-bottom: 5px;padding: 0px;padding-top: 10px;color: #ffffff;">Birthdate</h3>
+              <div class="form-group mb-0 pb-2">
+                <input class="form-control" type="date" id="donator-birth-date" required="">
+              </div>
+            </div>
+            <div class="control-group">
+              <h3 class="font-weight-light mb-0" style="text-align: left;font-size: 24px;margin: 3px;margin-bottom: 5px;padding: 0px;padding-top: 10px;color: #ffffff;">Organe</h3>
+              <div class="form-group mb-0 pb-2">
+                <input class="form-control" type="text" id="donator-organs" required="">
+              </div>
+            </div>
+            <div class="control-group">
+              <h3 class="font-weight-light mb-0" style="text-align: left;font-size: 24px;margin: 3px;margin-bottom: 5px;padding: 0px;padding-top: 10px;color: #ffffff;">Research Purposes</h3>
+              <div class="form-group mb-0 pb-2">
+                <input class="form-control" type="text" id="donator-research" required="">
+              </div>
+            </div>
+            <div id="success"></div>
+            <button class="btn btn-primary btn-xl" id="issueCredentials" type="button" onclick="genVerifiableCredentials()" style="background: rgb(255,255,255);color: #0b65a6;border-color: #08437a;">Issue</button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </section>
+  <footer class="footer text-center">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-4 mb-5 mb-lg-0"></div>
+        <div class="col-md-4">
+          <p class="lead mb-0"></p>
+          <h4 class="text-uppercase mb-4">Developed by</h4>
+          <p>Oliver Bähler &lt;oliverbaehler@hotmai.com&gt;</p>
+          <p>Kevin Klopfenstein &lt;kk@sudo-i&gt;</p>
+        </div>
+      </div>
+    </div>
+  </footer>
+  <div class="copyright py-4 text-center text-white">
+    <div class="container"><small>Copyright ©&nbsp;Brand 2020</small></div>
+  </div>
+  <div class="d-lg-none scroll-to-top position-fixed rounded"><a class="d-block js-scroll-trigger text-center text-white rounded" href="#page-top"><i class="fa fa-chevron-up"></i></a></div>
+  <div class="modal text-center" role="dialog" tabindex="-1" id="portfolio-modal-1">
+    <div class="modal-dialog modal-lg" role="document">
+      <div class="modal-content">
+        <div class="modal-header"><button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span></button></div>
+        <div class="modal-body">
+          <div class="container text-center">
+            <div class="row">
+              <div class="col-lg-8 mx-auto">
+                <h2 class="text-uppercase text-secondary mb-0">Project Name</h2>
+                <hr class="star-dark mb-5"><img class="img-fluid mb-5" src="assets/img/portfolio/cabin.png">
+                <p class="mb-5">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Mollitia neque assumenda ipsam nihil, molestias magnam, recusandae quos quis inventore quisquam velit asperiores, vitae? Reprehenderit soluta, eos quod
+                  consequuntur
+                  itaque. Nam.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="modal-footer pb-5"><a class="btn btn-primary btn-lg mx-auto rounded-pill portfolio-modal-dismiss" role="button" href="#"><i class="fa fa-close"></i>&nbsp;Close Project</a></div>
+      </div>
+    </div>
+  </div>
+  <div class="modal text-center" role="dialog" tabindex="-1" id="portfolio-modal-2">
+    <div class="modal-dialog modal-lg" role="document">
+      <div class="modal-content">
+        <div class="modal-header"><button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span></button></div>
+        <div class="modal-body">
+          <div class="container text-center">
+            <div class="row">
+              <div class="col-lg-8 mx-auto">
+                <h2 class="text-uppercase text-secondary mb-0">Project Name</h2>
+                <hr class="star-dark mb-5"><img class="img-fluid mb-5" src="assets/img/portfolio/cake.png">
+                <p class="mb-5">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Mollitia neque assumenda ipsam nihil, molestias magnam, recusandae quos quis inventore quisquam velit asperiores, vitae? Reprehenderit soluta, eos quod
+                  consequuntur
+                  itaque. Nam.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="modal-footer pb-5"><a class="btn btn-primary btn-lg mx-auto rounded-pill portfolio-modal-dismiss" role="button" href="#"><i class="fa fa-close"></i>&nbsp;Close Project</a></div>
+      </div>
+    </div>
+  </div>
+  <div class="modal text-center" role="dialog" tabindex="-1" id="portfolio-modal-3">
+    <div class="modal-dialog modal-lg" role="document">
+      <div class="modal-content">
+        <div class="modal-header"><button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span></button></div>
+        <div class="modal-body">
+          <div class="container text-center">
+            <div class="row">
+              <div class="col-lg-8 mx-auto">
+                <h2 class="text-uppercase text-secondary mb-0">Project Name</h2>
+                <hr class="star-dark mb-5"><img class="img-fluid mb-5" src="assets/img/portfolio/circus.png">
+                <p class="mb-5">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Mollitia neque assumenda ipsam nihil, molestias magnam, recusandae quos quis inventore quisquam velit asperiores, vitae? Reprehenderit soluta, eos quod
+                  consequuntur
+                  itaque. Nam.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="modal-footer pb-5"><a class="btn btn-primary btn-lg mx-auto rounded-pill portfolio-modal-dismiss" role="button" href="#"><i class="fa fa-close"></i>&nbsp;Close Project</a></div>
+      </div>
+    </div>
+  </div>
+  <div class="modal text-center" role="dialog" tabindex="-1" id="portfolio-modal-4">
+    <div class="modal-dialog modal-lg" role="document">
+      <div class="modal-content">
+        <div class="modal-header"><button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span></button></div>
+        <div class="modal-body">
+          <div class="container text-center">
+            <div class="row">
+              <div class="col-lg-8 mx-auto">
+                <h2 class="text-uppercase text-secondary mb-0">Project Name</h2>
+                <hr class="star-dark mb-5"><img class="img-fluid mb-5" src="assets/img/portfolio/game.png">
+                <p class="mb-5">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Mollitia neque assumenda ipsam nihil, molestias magnam, recusandae quos quis inventore quisquam velit asperiores, vitae? Reprehenderit soluta, eos quod
+                  consequuntur
+                  itaque. Nam.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="modal-footer pb-5"><a class="btn btn-primary btn-lg mx-auto rounded-pill portfolio-modal-dismiss" role="button" href="#"><i class="fa fa-close"></i>&nbsp;Close Project</a></div>
+      </div>
+    </div>
+  </div>
+  <div class="modal text-center" role="dialog" tabindex="-1" id="portfolio-modal-5">
+    <div class="modal-dialog modal-lg" role="document">
+      <div class="modal-content">
+        <div class="modal-header"><button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span></button></div>
+        <div class="modal-body">
+          <div class="container text-center">
+            <div class="row">
+              <div class="col-lg-8 mx-auto">
+                <h2 class="text-uppercase text-secondary mb-0">Project Name</h2>
+                <hr class="star-dark mb-5"><img class="img-fluid mb-5" src="assets/img/portfolio/safe.png">
+                <p class="mb-5">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Mollitia neque assumenda ipsam nihil, molestias magnam, recusandae quos quis inventore quisquam velit asperiores, vitae? Reprehenderit soluta, eos quod
+                  consequuntur
+                  itaque. Nam.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="modal-footer pb-5"><a class="btn btn-primary btn-lg mx-auto rounded-pill portfolio-modal-dismiss" role="button" href="#"><i class="fa fa-close"></i>&nbsp;Close Project</a></div>
+      </div>
+    </div>
+  </div>
+  <div class="modal text-center" role="dialog" tabindex="-1" id="portfolio-modal-6">
+    <div class="modal-dialog modal-lg" role="document">
+      <div class="modal-content">
+        <div class="modal-header"><button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span></button></div>
+        <div class="modal-body">
+          <div class="container text-center">
+            <div class="row">
+              <div class="col-lg-8 mx-auto">
+                <h2 class="text-uppercase text-secondary mb-0">Project Name</h2>
+                <hr class="star-dark mb-5"><img class="img-fluid mb-5" src="assets/img/portfolio/submarine.png">
+                <p class="mb-5">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Mollitia neque assumenda ipsam nihil, molestias magnam, recusandae quos quis inventore quisquam velit asperiores, vitae? Reprehenderit soluta, eos quod
+                  consequuntur
+                  itaque. Nam.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="modal-footer pb-5"><a class="btn btn-primary btn-lg mx-auto rounded-pill portfolio-modal-dismiss" role="button" href="#"><i class="fa fa-close"></i>&nbsp;Close Project</a></div>
+      </div>
+    </div>
+  </div>
+  <script src="assets/js/jquery.min.js"></script>
+  <script src="assets/bootstrap/js/bootstrap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-easing/1.4.1/jquery.easing.min.js"></script>
+  <script src="assets/js/freelancer.js"></script>
+  <script src="assets/js/config.js"></script>
+  <script src="assets/js/donator.js"></script>
+  <script src="assets/js/receiver.js"></script>
+  <script src="assets/js/verification.js"></script>
+  <script src="assets/js/helpers.js"></script>
+</body>
+
+</html>

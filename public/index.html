@@ -18,9 +18,9 @@
                 aria-expanded="false" aria-label="Toggle navigation"><i class="fa fa-bars"></i></button>
             <div class="collapse navbar-collapse" id="navbarResponsive">
                 <ul class="nav navbar-nav ml-auto">
-                    <li class="nav-item mx-0 mx-lg-1" role="presentation"><a class="nav-link py-3 px-0 px-lg-3 rounded js-scroll-trigger" href="#donate">Donator</a></li>
-                    <li class="nav-item mx-0 mx-lg-1" role="presentation"><a class="nav-link py-3 px-0 px-lg-3 rounded js-scroll-trigger" href="#about">Receiver</a></li>
-                    <li class="nav-item mx-0 mx-lg-1" role="presentation"><a class="nav-link py-3 px-0 px-lg-3 rounded js-scroll-trigger" href="#contact">Verification</a></li>
+                    <li class="nav-item mx-0 mx-lg-1" role="presentation"><a class="nav-link py-3 px-0 px-lg-3 rounded js-scroll-trigger" href="./index.html">Donator</a></li>
+                    <li class="nav-item mx-0 mx-lg-1" role="presentation"><a class="nav-link py-3 px-0 px-lg-3 rounded js-scroll-trigger" href="./receiver.html">Receiver</a></li>
+                    <li class="nav-item mx-0 mx-lg-1" role="presentation"><a class="nav-link py-3 px-0 px-lg-3 rounded js-scroll-trigger" href="./verification.html">Verification</a></li>
                 </ul>
             </div>
         </div>
@@ -132,6 +132,10 @@
             <div class="row">
                 <div class="col-lg-8 mx-auto">
                   <div id="donate-5-response" class="panel" style="width:425px;height:270px;margin-left: auto;margin-right: auto;background: #ffffff;"></div>
+                </div>
+                <div id="success"></div>
+                <button class="btn btn-primary btn-xl" id="issueCredentials" type="button" onclick="genVerifiableCredentialsorganRecipient()" style="background: rgb(255,255,255);color: #0b65a6;border-color: #08437a;">Issue</button>
+                </form>
                 </div>
             </div>
         </div>
@@ -279,6 +283,7 @@
     <script src="assets/js/freelancer.js"></script>
     <script src="assets/js/config.js"></script>
     <script src="assets/js/donator.js"></script>
+    <script src="assets/js/receiver.js"></script>
     <script src="assets/js/helpers.js"></script>
 </body>
 
