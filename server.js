@@ -13,7 +13,10 @@ const config = {
   accessToken: process.env.ACCESS_TOKEN,
   schema: {
     donator: "2wy7WKyfYL6z3HMZC7YxbM:3:CL:140610:default",
-    relative: "2wy7WKyfYL6z3HMZC7YxbM:3:CL:140606:default"
+    relative: "2wy7WKyfYL6z3HMZC7YxbM:3:CL:140606:default",
+    receiver: "2wy7WKyfYL6z3HMZC7YxbM:3:CL:140842:default",
+    transcation:"2wy7WKyfYL6z3HMZC7YxbM:3:CL:140616:default",
+    verification: "d12f3b45-200a-4389-41ac-08d847ea6518"
   },
   web: {
     port: 8080,
