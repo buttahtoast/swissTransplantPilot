@@ -40,7 +40,18 @@ function workflowSOAS() {
       data: JSON.stringify({
         donator_credential: document.getElementById("sel2").options[sel2s].id,
         receiver_credential: document.getElementById("sel1").options[sel1s].id
-      })
+      }),
+      success: async function() {
+        document.getElementById("btn-match").style.backgroundColor = "lime";
+      },
+      fail: async function() {
+        document.getElementById("btn-match").style.backgroundColor = "red";
+      },
+      statusCode: {
+        500: async function() {
+          document.getElementById("btn-match").style.backgroundColor = "red";
+        },
+      }
     })
   }
 }
