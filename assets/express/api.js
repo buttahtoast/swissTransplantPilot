@@ -38,7 +38,11 @@ var client,
       relative: {
         connection: {}
       }
+    },
+    _verfication: {
+      connection: {}
     }
+
   };
 
 
@@ -369,6 +373,12 @@ async function loader(config, localapp, db) {
               Organ: String(req.body.organ),
             }
           });
+
+          db.run('INSERT INTO soas_receiver VALUES(?,?,?)', [
+            String(session.receiver.connection.connectionId),
+            String(req.body.organ),
+            session.id,
+          ]);
           // Mark As Done
           session.receiver.registered = true;
 
@@ -433,6 +443,7 @@ async function loader(config, localapp, db) {
       })
       localapp.get('/api/verification/check/relative', async function(req, res) {
         // Send Verfication Request to relative
+        session._verfication.connection = session.verification.connection
         session.verification = await client.sendVerificationFromPolicy(String(session.verification.relative.connection), config.schema.verification);
         res.status(200).json('success')
       })
@@ -450,6 +461,117 @@ async function loader(config, localapp, db) {
           })
         }
       })
+
+      localapp.get('/api/verification/add/donator', async function(req, res) {
+        // Send Verfication Request to relative
+        session.verification = await client.getVerification(String(session.verification.verificationId));
+        db.run('INSERT INTO soas_donator VALUES(?,?,?)', [
+          String(session._verfication.connection),
+          String(session.verification.connectionId),
+          session.id
+        ]);
+        res.status(200).json('success')
+
+      })
+
+      localapp.get('/api/soas/get/donator', async function(req, res) {
+        // Send soas donators
+        var query = "SELECT * from soas_donator;"
+        db.all(query, [], (err, rows) => {
+          if (err) {
+            res.status(500).json('error')
+            throw err;
+          }
+          if (rows.length == 0) {
+            res.status(500).json('error')
+          } else {
+            t = []
+            rows.forEach((row) => {
+              t.push({
+                donator_credential: row.donator_credential
+              })
+            })
+            res.status(200).json(t)
+          };
+        })
+      })
+
+      localapp.get('/api/soas/get/receiver', async function(req, res) {
+        // Send soas receiver
+        var query = "SELECT * from soas_receiver;"
+        db.all(query, [], (err, rows) => {
+          if (err) {
+            res.status(500).json('error')
+            throw err;
+          }
+          if (rows.length == 0) {
+            res.status(500).json('error')
+          } else {
+            t = []
+            rows.forEach((row) => {
+              t.push({
+                receiver_credential: row.credential,
+                receiver_organ: row.organ
+              })
+            })
+            res.status(200).json(t)
+          };
+        })
+      })
+      localapp.post('/api/soas/match', async function(req, res) {
+        // Save Given Data
+        console.log(query)
+        var organ
+        var query = "SELECT organ from soas_receiver WHERE credential = '" + req.body.receiver_credential + "' ;"
+        console.log(query)
+        db.all(query, [], (err, rows) => {
+          if (err) {
+            res.status(500).json('error')
+            throw err;
+          }
+          if (rows.length == 0) {
+            res.status(500).json('error')
+          } else {
+            rows.forEach((row) => {
+              organ = row.organ
+              console.log(organ)
+            })
+          }
+        })
+
+        // Create Offer for Donator
+        let l = await client.createCredential({
+          definitionId: "2wy7WKyfYL6z3HMZC7YxbM:3:CL:140616:default",
+          connectionId: req.body.donator_credential,
+          automaticIssuance: true,
+          credentialValues: {
+            SpenderCredentialID: String(req.body.donator_credential),
+            EmpfaengerConnectionID: String(req.body.receiver_credential),
+            Organ: String(organ),
+            originHospital: String("test"),
+            finaleHospital: String("test")
+          }
+        });
+       let z =  await client.createCredential({
+          definitionId: "2wy7WKyfYL6z3HMZC7YxbM:3:CL:140616:default",
+          connectionId: req.body.receiver_credential,
+          automaticIssuance: true,
+          credentialValues: {
+            SpenderCredentialID: String(req.body.donator_credential),
+            EmpfaengerConnectionID: String(req.body.receiver_credential),
+            Organ: String(organ),
+            originHospital: String("test"),
+            finaleHospital: String("test")
+          }
+        });
+
+        // Mark As Done
+
+        // Resolve
+        res.status(200).json({
+          ready: true
+        });
+      });
 
       //
       // Verification

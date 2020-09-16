@@ -106,7 +106,25 @@ function workflowVerfication() {
     document.getElementById("verification-3").classList.add("disabled");
     document.getElementById("verification-4").classList.remove("disabled");
     document.getElementById("verification-4").scrollIntoView();
-    document.getElementById
+    document.getElementById("btn-verify-ok").onclick = async function() {
+      $.ajax({
+        url: config.backend + '/api/verification/add/donator',
+        type: 'GET',
+        contentType: 'application/json',
+        success: async function() {
+          document.getElementById("btn-verify-ok").style.backgroundColor = "lime";
+        },
+        fail: async function() {
+          document.getElementById("btn-verify-ok").style.backgroundColor = "red";
+        },
+        statusCode: {
+          500: async function() {
+            document.getElementById("btn-verify-ok").style.backgroundColor = "red";
+          },
+        }
+      })
+    }
+
   }
 
 }
