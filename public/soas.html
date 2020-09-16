@@ -12,7 +12,7 @@
   <link rel="stylesheet" href="assets/fonts/font-awesome.min.css">
 </head>
 
-<body id="page-top" onload="initializeVerfication()">
+<body id="page-top" onload="workflowSOAS()">
   <nav class="navbar navbar-light navbar-expand-lg fixed-top bg-secondary text-uppercase" id="mainNav" style="background-color: #08437a;">
     <div class="container"><a class="navbar-brand js-scroll-trigger" href="#page-top">Pilot</a><button data-toggle="collapse" data-target="#navbarResponsive" class="navbar-toggler navbar-toggler-right text-uppercase bg-primary text-white rounded"
         aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation"><i class="fa fa-bars"></i></button>
@@ -33,96 +33,29 @@
     </div>
   </header>
   <div id="verification">
-    <section id="verification-1" class="donate disabled" style="background-color: #08437a;color: rgb(255,255,255);">
+    <section id="soas-1" class="donate disabled" style="background-color: #08437a;color: rgb(255,255,255);">
       <div class="container">
         <h2 class="text-uppercase text-center text-white">Step 1</h2>
-        <h2 class="font-weight-light mb-0" style="text-align: center;font-size: 28px;margin: 3px;margin-bottom: 3px;padding: 0px;padding-top: 10px;padding-bottom: 20px;">Verify a donator</h2>
+        <h2 class="font-weight-light mb-0" style="text-align: center;font-size: 28px;margin: 3px;margin-bottom: 3px;padding: 0px;padding-top: 10px;padding-bottom: 20px;">Match Receiver & Donator</h2>
         <div class="row">
           <div class="col-lg-8 mx-auto">
-            <form id="contactForm" name="sentMessage">
-              <div class="control-group">
-                <h3 class="font-weight-light mb-0" style="text-align: left;font-size: 24px;margin: 3px;margin-bottom: 5px;padding: 0px;padding-top: 10px;color: #ffffff;">ConnectionID</h3>
-                <div class="form-group mb-0 pb-2">
-                  <input class="form-control" type="text" id="verification-connectionID" required="" placeholder="ConnectionID">
-                </div>
-              </div>
-              <div id="success"></div>
-              <button class="btn btn-primary btn-xl" id="btn-verify" type="button" style="background: rgb(255,255,255);color: #0b65a6;border-color: #08437a;">Check</button>
+            <div class="form-group">
+              <form id="contactForm" name="sentMessage">
+              <label">Select Receiver</label>
+              <select class="form-control" id="sel1">
+              </select>
+            <label">Select Donator</label>
+            <select class="form-control" id="sel2">
+            </select>
+            <br>
+            <button class="btn btn-primary btn-xl" id="btn-match" type="button" style="background: rgb(255,255,255);color: #0b65a6;border-color: #08437a;">Match</button>
             </form>
           </div>
         </div>
-        <div id="verification-1-response" class="col"></div>
       </div>
-  </div>
-  </section>
-  <section id="verification-2" class="donate disabled" style="background: #ffffff;color: #08437a;">
-    <div class=control-group>
-      <h2 class="text-uppercase text-center text-secondary" style="color: rgb(255,255,255);">Step 2</h2>
-      <h2 class="font-weight-light mb-0" style="text-align: center;font-size: 28px;margin: 3px;margin-bottom: 3px;padding: 0px;padding-top: 10px;padding-bottom: 20px;color: #0b65a6;">Checking Databses for relative</h2>
-      <div class="form-group mb-0 pb-2">
-        <img id="verification-status" class="rounded mx-auto d-block" src="assets/img/loader.gif"></a>
-      </div>
+      <div id="verification-1-response" class="col"></div>
     </div>
-  </section>
-  <section id="verification-3" class="donate disabled" style="background: #ffffff;color: #08437a;">
-    <div class=control-group>
-      <h2 class="text-uppercase text-center text-secondary" style="color: rgb(255,255,255);">Step 4</h2>
-      <h2 class="font-weight-light mb-0" style="text-align: center;font-size: 28px;margin: 3px;margin-bottom: 3px;padding: 0px;padding-top: 10px;padding-bottom: 20px;color: #0b65a6;">Asking relative for permission</h2>
-      <div class="form-group mb-0 pb-2">
-        <img id="verification-status2" class="rounded mx-auto d-block" src="assets/img/loader.gif"></a>
-      </div>
-    </div>
-  </section>
-  <section id="verification-4" class="donate disabled" style="background: #08437a;color: #08437a;">
-    <h2 class="text-uppercase text-center text-white">Step 3</h2>
-    <h2 class="font-weight-light mb-0" style="text-align: center;font-size: 28px;margin: 3px;margin-bottom: 3px;padding: 0px;padding-top: 10px;padding-bottom: 20px;color: rgb(255,255,255);">Donator Data</h2>
-    <div class="container">
-      <div class="row">
-        <div class="col-lg-8 mx-auto">
-          <form id="contactForm" name="sentMessage">
-            <div class="control-group">
-              <h3 class="font-weight-light mb-0" style="text-align: left;font-size: 24px;margin: 3px;margin-bottom: 5px;padding: 0px;padding-top: 10px;color: #ffffff;">Firstname</h3>
-              <div class="form-group mb-0 pb-2">
-                <input class="form-control" type="text" id="donator-first-name" required="" placeholder="Firstname">
-              </div>
-            </div>
-            <div class="control-group">
-              <h3 class="font-weight-light mb-0" style="text-align: left;font-size: 24px;margin: 3px;margin-bottom: 5px;padding: 0px;padding-top: 10px;color: #ffffff;">Surname</h3>
-              <div class="form-group mb-0 pb-2">
-                <input class="form-control" type="text" id="donator-sur-name" required="" placeholder="Surname">
-              </div>
-            </div>
-            <div class="control-group">
-              <h3 class="font-weight-light mb-0" style="text-align: left;font-size: 24px;margin: 3px;margin-bottom: 5px;padding: 0px;padding-top: 10px;color: #ffffff;">Place of birth</h3>
-              <div class="form-group mb-0 pb-2">
-                <input class="form-control" type="text" id="donator-birth-place" required="" placeholder="Place of birth">
-              </div>
-            </div>
-            <div class="control-group">
-              <h3 class="font-weight-light mb-0" style="text-align: left;font-size: 24px;margin: 3px;margin-bottom: 5px;padding: 0px;padding-top: 10px;color: #ffffff;">Birthdate</h3>
-              <div class="form-group mb-0 pb-2">
-                <input class="form-control" type="date" id="donator-birth-date" required="">
-              </div>
-            </div>
-            <div class="control-group">
-              <h3 class="font-weight-light mb-0" style="text-align: left;font-size: 24px;margin: 3px;margin-bottom: 5px;padding: 0px;padding-top: 10px;color: #ffffff;">Organe</h3>
-              <div class="form-group mb-0 pb-2">
-                <input class="form-control" type="text" id="donator-organs" required="">
-              </div>
-            </div>
-            <div class="control-group">
-              <h3 class="font-weight-light mb-0" style="text-align: left;font-size: 24px;margin: 3px;margin-bottom: 5px;padding: 0px;padding-top: 10px;color: #ffffff;">Research Purposes</h3>
-              <div class="form-group mb-0 pb-2">
-                <input class="form-control" type="text" id="donator-research" required="">
-              </div>
-            </div>
-            <div id="success"></div>
-            <button class="btn btn-primary btn-xl" id="btn-verify-ok" type="button" style="background: rgb(255,255,255);color: #0b65a6;border-color: #08437a;">Send to SOAS</button>
-          </form>
-        </div>
-      </div>
-    </div>
-  </section>
+</section>
   <footer class="footer text-center">
     <div class="container">
       <div class="row">
@@ -273,7 +206,7 @@
   <script src="assets/js/config.js"></script>
   <script src="assets/js/donator.js"></script>
   <script src="assets/js/receiver.js"></script>
-  <script src="assets/js/verification.js"></script>
+  <script src="assets/js/soas.js"></script>
   <script src="assets/js/helpers.js"></script>
 </body>
 

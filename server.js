@@ -39,6 +39,19 @@ async function initialize() {
       session VARCHAR(250))`
     );
 
+    // Initialize Database SOAS
+    db.run(`CREATE TABLE IF NOT EXISTS soas_donator(
+      donator_credential VARCHAR(250) NOT NULL PRIMARY KEY,
+      relative_credential VARCHAR(250),
+      session VARCHAR(250))`
+    );
+
+    db.run(`CREATE TABLE IF NOT EXISTS soas_receiver(
+      credential VARCHAR(250) NOT NULL PRIMARY KEY,
+      organ VARCHAR(250),
+      session VARCHAR(250))`
+    );
+
     // Load Webserver
     console.log("Startup: Attempt to load Express App")
     const expressApp = await expressInit.initialize(config, db); // Initialize Express
