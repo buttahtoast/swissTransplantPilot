@@ -18,3 +18,12 @@ async function state(endpoint, party) {
      await sleep(2000);
   }
 }
+
+function sessionclear() {
+  $.ajax({
+    url:  config.backend + '/api/dev/session/clear',
+    type: 'GET',
+    contentType: 'application/json',
+  });
+  location.reload()
+}

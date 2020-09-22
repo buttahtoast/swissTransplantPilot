@@ -124,6 +124,12 @@ async function loader(config, localapp, db) {
         res.status(200).json(session);
       });
 
+      // Destory Session
+      localapp.get('/api/dev/session/clear', function(req, res) {
+        delete session
+        res.status(200).json(session);
+      });
+
       // Import Session
       localapp.post('/api/dev/session', function(req, res) {
         try {
