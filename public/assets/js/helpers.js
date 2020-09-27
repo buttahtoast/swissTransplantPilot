@@ -21,7 +21,7 @@ async function state(endpoint, party) {
 
 function sessionclear() {
   $.ajax({
-    url:  config.backend + '/api/dev/session/clear',
+    url:  config.backend + '/api/dev/clear/session',
     type: 'GET',
     contentType: 'application/json',
   });
