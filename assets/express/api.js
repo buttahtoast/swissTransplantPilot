@@ -350,7 +350,7 @@ async function loader(config, localapp, db) {
       // Check Credential State
       localapp.get('/api/connection/qr/relative', async function(req, res) {
         res.status(200).json({
-          url: "https://chart.googleapis.com/chart?cht=qr&chl=" + session.donator.relative.credential.credentialId + "&chs=200x200&chld=L|1"
+          url: "https://chart.googleapis.com/chart?cht=qr&chl=" + session.donator.connection.connectionId + "&chs=200x200&chld=L|1"
         });
       });
 
