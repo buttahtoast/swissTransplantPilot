@@ -8,43 +8,39 @@ const moment = require('moment'),
     Credentials
   } = require("@trinsic/service-clients");
 
-
-// Cookie Donator / Relatives
-var client,
-  session = {
-    id: String(Date.now()),
-    donator: {
+var client
+session = {
+  id: String(Date.now()),
+  donator: {
+    connection: {},
+    credential: {},
+    data: {},
+    relative: {
       connection: {},
-      credential: {},
-      data: {},
-      relative: {
-        connection: {},
-        credential: {}
-      },
-      registered: false
+      credential: {}
     },
-    receiver: {
-      connection: {},
-      credential: {},
-      data: {},
-      registered: false
-    },
-    transaction: {},
-    verification: {
-      connection: {},
-      verificationId: {},
-      VerificationContract: {},
-      verification: {},
-      relative: {
-        connection: {}
-      }
-    },
-    _verfication: {
+    registered: false
+  },
+  receiver: {
+    connection: {},
+    credential: {},
+    data: {},
+    registered: false
+  },
+  transaction: {},
+  verification: {
+    connection: {},
+    verificationId: {},
+    VerificationContract: {},
+    verification: {},
+    relative: {
       connection: {}
     }
-
-  };
-
+  },
+  _verfication: {
+    connection: {}
+  }
+}
 
 const createInvitation = async function(req, res) {
   session.receiver.connection = await client.createConnection({
@@ -125,8 +121,38 @@ async function loader(config, localapp, db) {
       });
 
       // Destory Session
-      localapp.get('/api/dev/session/clear', function(req, res) {
-        delete session
+      localapp.get('/api/dev/clear/session', function(req, res) {
+        // delete client;
+        // delete session;
+        session.donator = {
+          connection: {},
+          credential: {},
+          data: {},
+          relative: {
+            connection: {},
+            credential: {}
+          },
+          registered: false
+        };
+        session.receiver = {
+          connection: {},
+          credential: {},
+          data: {},
+          registered: false
+        };
+        session.verification = {
+          connection: {},
+          verificationId: {},
+          VerificationContract: {},
+          verification: {},
+          relative: {
+            connection: {}
+          }
+        };
+        session._verfication = {
+          connection: {}
+        };
+
         res.status(200).json(session);
       });
 
@@ -558,7 +584,7 @@ async function loader(config, localapp, db) {
             finaleHospital: String("test")
           }
         });
-       let z =  await client.createCredential({
+        let z = await client.createCredential({
           definitionId: "2wy7WKyfYL6z3HMZC7YxbM:3:CL:140616:default",
           connectionId: req.body.receiver_credential,
           automaticIssuance: true,
